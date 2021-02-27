@@ -2,6 +2,7 @@ import scipy.spatial
 import numpy as np
 import warnings
 
+
 def dunn_index(data, m, **kwargs):
 	"""
 		Dunn's index is an internal cluster validity measure
@@ -11,11 +12,11 @@ def dunn_index(data, m, **kwargs):
 		----------
 		m: array of cluster assignments
 		data: array of data points
-		**kwargs: uses scipy.spatial.distance so pass necessary added parameters, eg. V- value in seuclidean
+		**kwargs: See scipy.spatial.distance **kwargs; pass necessary added parameters, eg. V- value in seuclidean
 
 		Returns
 		-------
-		score:	Maximum value representative of good partitioning
+		score:	Maximum value represents good partition
 	"""
 
 	m = np.array(m)
@@ -46,3 +47,4 @@ def dunn_index(data, m, **kwargs):
 			inter_cdist.append(min(pw_dist.flatten()))
 
 	return min(inter_cdist) / max(intra_cdist)
+
